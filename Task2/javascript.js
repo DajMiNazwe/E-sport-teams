@@ -26,21 +26,19 @@ function getTeamsFromJSON() {
 }
 
 function showAllTeamsTable() {
-  console.log('lol');
     document.body.innerHTML = '<table id="table"><tr><td>Name</td><td>Nationality</td><td>Ranking position</td><tr></table>';
     for (let i = 0; i < teams.length ; i++) {
-      console.log(i);
-        document.getElementById('table').innerHTML += '<tr id="td' + i + '"></tr>';
-        document.getElementById('td'+ i ).innerHTML = '<td>' + teams[i].name + '</td><td>' + teams[i].nationality +  '</td><td>' + teams[i].rankingPosition +  '</td>';
+      document.getElementById('table').innerHTML += '<tr id="td' + i + '"></tr>';
+      document.getElementById('td'+ i ).innerHTML = '<td>' + teams[i].name + '</td><td>' + teams[i].nationality +  '</td><td>' + teams[i].rankingPosition +  '</td>';
     }
 }
 
 (function init() {
     getTeamsFromJSON();
-    setTimeout(function() {
+    setTimeout(() => {
       showAllTeamsTable();
     }, 400);
-    setTimeout(function() {
+    setTimeout(() => {
         console.log(teams);
         addTeam('Team Kinguin', 'PL', 16);
         showAllTeamsTable();
