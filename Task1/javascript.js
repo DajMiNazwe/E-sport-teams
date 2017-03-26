@@ -13,15 +13,15 @@ function getTeamsFromJSON() {
     xobj.send(null);
 }
 
-function Team(name, nationality, rankingPosition) {
+var Team = function Team(name, nationality, rankingPosition) {
     this.name = name;
     this.nationality = nationality;
     this.rankingPosition = rankingPosition;
 }
 
-function addTeam(name, nationality, rankingPosition) {
-    var team = new Team(name, nationality, rankingPosition);
-    teams.push(team);
+Team.prototype.add = function() {
+  console.log(this);
+  teams.push(this);
 }
 
 function showAllTeamsTable(){
@@ -40,7 +40,8 @@ function showAllTeamsTable(){
     }, 400);
     setTimeout(function() {
         console.log(teams);
-        addTeam('Team Kinguin', 'PL', 16);
+        var team = new Team('Team Kinguin', 'PL', 18);
+        team.add();
         showAllTeamsTable();
     }, 1500)
 })();
