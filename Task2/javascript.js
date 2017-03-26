@@ -23,7 +23,7 @@ class Team {
 function getTeamsFromJSON() {
     let xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
-    xobj.open('GET', 'https://api.myjson.com/bins/s5uk3', true);
+    xobj.open('GET', './json.json', true);
     xobj.onreadystatechange = (data) => {
         if (xobj.readyState == 4 && xobj.status == "200") {
             teams = JSON.parse(xobj.response);
