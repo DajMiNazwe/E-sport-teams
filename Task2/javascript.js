@@ -6,10 +6,18 @@ class Team {
     this.nationality = nationality;
     this.rankingPosition = rankingPosition;
   }
-}
 
-function addTeam(team) {
-  teams.push(new Team('PRIDE', 'PL', 30));
+  addTeam(team) {
+    teams.push(team);
+  }
+
+  showAllTeamsTable() {
+      document.body.innerHTML = '<table id="table"><tr><td>Name</td><td>Nationality</td><td>Ranking position</td><tr></table>';
+      for (let i = 0; i < teams.length ; i++) {
+        document.getElementById('table').innerHTML += '<tr id="td' + i + '"></tr>';
+        document.getElementById('td'+ i ).innerHTML = '<td>' + teams[i].name + '</td><td>' + teams[i].nationality +  '</td><td>' + teams[i].rankingPosition +  '</td>';
+      }
+  }
 }
 
 function getTeamsFromJSON() {
@@ -25,22 +33,16 @@ function getTeamsFromJSON() {
     xobj.send(null);
 }
 
-function showAllTeamsTable() {
-    document.body.innerHTML = '<table id="table"><tr><td>Name</td><td>Nationality</td><td>Ranking position</td><tr></table>';
-    for (let i = 0; i < teams.length ; i++) {
-      document.getElementById('table').innerHTML += '<tr id="td' + i + '"></tr>';
-      document.getElementById('td'+ i ).innerHTML = '<td>' + teams[i].name + '</td><td>' + teams[i].nationality +  '</td><td>' + teams[i].rankingPosition +  '</td>';
-    }
-}
-
 (function init() {
+    let team = new Team('Kinguin', 'PL', 18);
     getTeamsFromJSON();
     setTimeout(() => {
-      showAllTeamsTable();
+      team.showAllTeamsTable();
     }, 400);
     setTimeout(() => {
         console.log(teams);
-        addTeam('Team Kinguin', 'PL', 16);
-        showAllTeamsTable();
+        team.addTeam(team);
+        team.addTeam(new Team('PRIDE', 'PL', 30));
+        team.showAllTeamsTable();
     }, 1500)
 })();
