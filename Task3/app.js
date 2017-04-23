@@ -11,10 +11,10 @@ keyups.throttleTime(500).map((x) => {
     })
     .subscribe((x) => {
       $('li').remove();
-      if(x[1]) {
+      if (x[1]) {
         x[1].forEach((element) => {
           $('#results > ul').append('<li>'+ element +'</li>');
-        })
+        });
       } else {
           $('#results').append('<h4>YOU NEED TO TYPE SOMETHING!</h4>');
       }
