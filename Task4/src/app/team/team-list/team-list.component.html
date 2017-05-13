@@ -1,0 +1,7 @@
+<p>
+  CS:GO teams
+</p>
+<app-team-item *ngFor="let team of teams"
+               [team]="team"
+               (clickEmitter)="teamClicked($event)">
+</app-team-item>
