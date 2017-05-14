@@ -7,6 +7,7 @@ import {AppComponent} from './app.component';
 import {TeamListComponent} from './team/team-list/team-list.component';
 import {TeamItemComponent} from './team/team-item/team-item.component';
 import {TeamFormComponent} from './team/team-form/team-form.component';
+import {AlertModule} from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {TeamFormComponent} from './team/team-form/team-form.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AlertModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

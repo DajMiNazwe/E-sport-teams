@@ -3,14 +3,15 @@ export class Team {
   name: string;
   rankingPosition: number;
   nationality: string;
-  players: Player[];
+  players: Player[] = [];
 
-  constructor(name, rankingPosition, nationality, players?) {
+  constructor(name, rankingPosition, nationality) {
     this.name = name;
     this.rankingPosition = rankingPosition;
     this.nationality = nationality;
-    if (players) {
-      this.players = players;
-    }
+  }
+
+  addPlayer(player: Player) {
+    this.players.push(player);
   }
 }

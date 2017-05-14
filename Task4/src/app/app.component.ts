@@ -11,10 +11,12 @@ export class AppComponent implements OnInit {
   teams: Team[] = [];
 
   ngOnInit() {
-    this.teams.push(new Team('Virtus.Pro', 6, 'Poland', [new Player('neo')]));
+
+    const virtusPro = new Team('Virtus.Pro', 6, 'Poland');
+    virtusPro.addPlayer(new Player('neo'));
+
+    this.teams.push(virtusPro);
     this.teams.push(new Team('Astralis', 1, 'Denmark'));
     this.teams.push(new Team('Faze Clan', 2, 'Mixed'));
-
-    console.log(this.teams);
   }
 }
