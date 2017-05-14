@@ -2,5 +2,13 @@
   {{team.name}}
 </p>
 <div *ngIf='isSelected'>
-  <p>Is selected</p>
+  <ul>
+    <li>Nationality: {{team.nationality}}</li>
+    <li>Ranking position: {{team.rankingPosition}}</li>
+    <li>Players:
+      <ul *ngFor='let player of team.players'>
+        <li>{{player.nick}}</li>
+      </ul>
+    </li>
+  </ul>
 </div>
