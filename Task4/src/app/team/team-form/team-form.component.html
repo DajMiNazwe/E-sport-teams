@@ -1,3 +1,17 @@
-<p>
-  team-form works!
-</p>
+<form [formGroup]="teamForm" novalidate>
+  <div class="form-group">
+    <label>Name:
+      <input class="form-control" formControlName="name">
+    </label>
+  </div>
+  <div class="form-group">
+    <label>Ranking position:
+      <input class="form-control" formControlName="rankingPosition">
+    </label>
+  </div>
+  <div class="form-group">
+    <label>Nationality:
+      <input class="form-control" formControlName="nationality">
+    </label>
+  </div>
+</form>

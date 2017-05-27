@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-team-form',
@@ -6,10 +7,21 @@ import {Component, OnInit} from '@angular/core';
 })
 export class TeamFormComponent implements OnInit {
 
-  constructor() {
+  teamForm: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
+    this.createForm();
   }
 
   ngOnInit() {
+  }
+
+  createForm() {
+    this.teamForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      rankingPosition: null,
+      nationality: ['', Validators.required]
+    });
   }
 
 }
