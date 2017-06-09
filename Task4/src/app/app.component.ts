@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Team} from './team/team-item/team';
-import {Player} from './player/player';
+import {ApplicationService} from './application.service';
 
 @Component({
   selector: 'app-root',
@@ -10,13 +10,17 @@ export class AppComponent implements OnInit {
 
   teams: Team[] = [];
 
+  constructor(private service: ApplicationService) {
+    service.changeEmitted$.subscribe(() => {
+      this.service.list().subscribe((teams) => {
+        this.teams = teams;
+      });
+    });
+  }
+
   ngOnInit() {
-
-    const virtusPro = new Team('Virtus.Pro', 6, 'Poland');
-    virtusPro.addPlayer(new Player('neo'));
-
-    this.teams.push(virtusPro);
-    this.teams.push(new Team('Astralis', 1, 'Denmark'));
-    this.teams.push(new Team('Faze Clan', 2, 'Mixed'));
+    this.service.list().subscribe((teams) => {
+      this.teams = teams;
+    });
   }
 }

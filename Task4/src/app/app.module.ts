@@ -8,6 +8,13 @@ import {TeamListComponent} from './team/team-list/team-list.component';
 import {TeamItemComponent} from './team/team-item/team-item.component';
 import {TeamFormComponent} from './team/team-form/team-form.component';
 import {AlertModule} from 'ngx-bootstrap';
+import {RouterModule, Routes} from '@angular/router';
+import {ApplicationService} from './application.service';
+
+const appRoutes: Routes = [
+  {path: 'add', component: TeamFormComponent},
+  {path: 'edit/:name', component: TeamFormComponent}
+];
 
 @NgModule({
   declarations: [
@@ -21,9 +28,10 @@ import {AlertModule} from 'ngx-bootstrap';
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [ApplicationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,4 +1,4 @@
-<form [formGroup]="teamForm" novalidate>
+<form [formGroup]="teamForm" novalidate (ngSubmit)="submit()">
   <div class="form-group">
     <label>Name:
       <input class="form-control" formControlName="name">
@@ -14,4 +14,5 @@
       <input class="form-control" formControlName="nationality">
     </label>
   </div>
+  <button class="btn btn-default" type="submit">Save</button>
 </form>

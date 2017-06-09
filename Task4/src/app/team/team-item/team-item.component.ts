@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Team} from './team';
+import {ApplicationService} from '../../application.service';
 
 @Component({
   selector: 'app-team-item',
@@ -15,9 +16,15 @@ export class TeamItemComponent {
 
   isSelected = false;
 
+  constructor(private service: ApplicationService) {
+  }
+
   teamSelected() {
-    console.log(`Team: ${this.team.name} selected`);
     this.isSelected ? this.isSelected = false : this.isSelected = true;
     this.clickEmitter.emit(this.team.name);
+  }
+
+  delete() {
+    this.service.delete(this.team.name);
   }
 }
