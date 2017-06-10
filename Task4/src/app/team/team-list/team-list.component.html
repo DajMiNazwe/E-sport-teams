@@ -1,12 +1,13 @@
+<div class="page-header">
 <p>
   CS:GO teams
 </p>
 
-<a routerLink="/add" routerLinkActive="active" class="btn btn-primary">New team</a>
-
+  <a routerLink="/add" routerLinkActive="active" class="btn btn-primary">New team</a>
+</div>
+<div class="list-group">
 <app-team-item *ngFor="let team of teams"
                [team]="team"
                (clickEmitter)="teamClicked($event)">
 </app-team-item>
-
-
+</div>

@@ -1,3 +1,7 @@
+<div class="page-header">
+  <p>
+    Team form
+  </p>
 <form [formGroup]="teamForm" novalidate (ngSubmit)="submit()">
   <div class="form-group">
     <label>Name:
@@ -15,4 +19,6 @@
     </label>
   </div>
   <button class="btn btn-default" type="submit">Save</button>
+  <a routerLink="/" routerLinkActive="active" class="btn btn-warning">Cancel</a>
 </form>
+</div>

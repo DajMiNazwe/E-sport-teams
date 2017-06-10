@@ -1,4 +1,6 @@
 <div class="col-lg-6">
+  <label for="search">Search</label>
+  <input id="search" (keyup)="onKey($event)" type="text" placeholder="Type team name">
   <app-team-list [teams]='teams'></app-team-list>
 </div>
 <div class="col-lg-6">

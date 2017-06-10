@@ -27,6 +27,12 @@ export class ApplicationService {
     this.refreshList();
   }
 
+  search(name: string): Team[] {
+    return teams.filter((team) => {
+      return team.name.startsWith(name);
+    });
+  }
+
   delete(name: string): void {
     teams.splice(this.getIndex(name), 1);
     this.refreshList();

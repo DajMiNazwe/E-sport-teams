@@ -23,4 +23,8 @@ export class AppComponent implements OnInit {
       this.teams = teams;
     });
   }
+
+  onKey(event: any) {
+    this.teams = this.service.search(event.target.value);
+  }
 }
